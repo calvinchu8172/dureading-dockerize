@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+
+  scope :path => '/api/v1/', :module => "api_v1", :as => 'v1' do
+    
+    post "/login" => "auth#create"
+    post "/logout" => "auth#destroy"
+
+    resources :books do
+      resources :comments
+    end
+
+  end  
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
