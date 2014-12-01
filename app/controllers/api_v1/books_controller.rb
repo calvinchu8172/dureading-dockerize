@@ -15,7 +15,7 @@ class ApiV1::BooksController < ApiController
 					:publish_date => Date.today,
 					:cover_large_url => "http://d2hsbzg80yxel6.cloudfront.net/images/87083/medium/ACL038700.jpg",					
 					:cover_small_url => "http://d2hsbzg80yxel6.cloudfront.net/images/87083/original/ACL038700.jpg",
-					:publish => "AlphaCamp",
+					:publisher => "AlphaCamp",
 					:updated_at => Time.now,
 					:created_at => Time.now,							
 					:comments => [
@@ -50,7 +50,7 @@ class ApiV1::BooksController < ApiController
 					:publish_date => Date.today,
 					:cover_large_url => "http://ecx.images-amazon.com/images/I/510KFpOXmAL.jpg",					
 					:cover_small_url => "http://ecx.images-amazon.com/images/I/510KFpOXmAL.jpg",
-					:publish => "AlphaCamp",
+					:publisher => "AlphaCamp",
 					:updated_at => Time.now,
 					:created_at => Time.now,
 					:comments => []					
