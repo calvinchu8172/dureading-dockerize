@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :books
 
+  # API
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1' do
     
     post "/login" => "auth#create"
