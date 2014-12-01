@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127103616) do
+ActiveRecord::Schema.define(version: 20141201073516) do
+
+  create_table "books", force: true do |t|
+    t.string   "isbn"
+    t.string   "title"
+    t.string   "author"
+    t.text     "description"
+    t.integer  "pages"
+    t.string   "cover_large_url"
+    t.string   "cover_small_url"
+    t.string   "publisher"
+    t.date     "publish_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"
