@@ -13,8 +13,13 @@ Rails.application.routes.draw do
     end
 
     resources :comments
-  end  
+  end
 
+   get '/auth/:provider/callback', :to => 'sessions#create'
+   get '/auth/failure', to: 'sessions#failure'
+   delete '/auth/signout', to: 'sessions#destroy'  
+
+root :to => "books#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

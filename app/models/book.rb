@@ -1,5 +1,8 @@
 class Book < ActiveRecord::Base
 
+	has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+    validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+
 	# isbn example: 9780307887894
 	
 	def fill_goodreads
@@ -11,7 +14,7 @@ class Book < ActiveRecord::Base
    		book_hash = Hash.from_xml( response.body )     
 
    		Rails.logger.debug(book_hash.inspect)
-   		
+
    		self.title = book_hash["GoodreadsResponse"]["book"]["title"]
    		self.author = book_hash["GoodreadsResponse"]["book"]["authors"]["author"]["name"]
    		

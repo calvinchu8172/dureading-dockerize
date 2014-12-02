@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201073516) do
+ActiveRecord::Schema.define(version: 20141201125143) do
 
   create_table "books", force: true do |t|
     t.string   "isbn"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141201073516) do
     t.datetime "token_expired"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["facebook_uid"], name: "index_users_on_facebook_uid"
