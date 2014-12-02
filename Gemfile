@@ -37,6 +37,8 @@ gem 'rspec-rails', group: [:development, :test]
 
 gem 'omniauth-facebook'
 
+gem "paperclip"
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

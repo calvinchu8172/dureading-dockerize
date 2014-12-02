@@ -1,6 +1,9 @@
 class BooksController < ApplicationController
 
 
+	def index
+	end
+
 	def create	
 		@book = find_or_create_book_information(params[:isbn])
 
@@ -18,6 +21,10 @@ class BooksController < ApplicationController
 		end
 
 		book
+	end
+
+	def book_params
+ 	 	params.require(:photo).permit(:isbn, :title, :author, :description, :pages, :publisher, :logo)
 	end
 
 end
