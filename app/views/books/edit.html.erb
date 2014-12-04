@@ -1,0 +1,22 @@
+<%= link_to image_tag( @book.logo.url(:thumb) ), @book.logo.url %></br>
+
+<%= form_for @book, :url => book_path(@book), :html => { :multipart => true }, :method => "patch" do |f| %>    
+
+	<%= f.file_field :logo %></br>
+
+    <%= f.label :title, "Book Name" %>
+    <%= f.text_field :title %></br>
+
+    <%= f.label :isbn, "ISBN" %>
+    <%= f.text_field :isbn %></br>
+
+    <%= f.label :author, "Author" %>
+    <%= f.text_field :author %></br>
+
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %></br>
+
+	<%= f.submit "Update" %>
+<% end %>
+
+<%= link_to 'Go Back', user_url(current_user) %>

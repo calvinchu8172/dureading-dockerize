@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :books
+  resources :books do
+    resources :comments
+  end
+
+  resources :users
 
   # API
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1' do
@@ -14,6 +18,8 @@ Rails.application.routes.draw do
 
     resources :comments
   end
+
+
 
    get '/auth/:provider/callback', :to => 'sessions#create'
    get '/auth/failure', to: 'sessions#failure'

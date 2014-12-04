@@ -1,15 +1,15 @@
-<% if current_user %>
-  Hi, <%= current_user.name %>
-  <%= link_to "登出", auth_signout_path, :method => :delete %></a>
-<% else %>
- <%= link_to "Facebook 登入", "/auth/facebook" %></a>
+<% @books.each do |t| %>
+<% if t.logo.exists? %> 
+	<%= link_to image_tag( t.logo.url(:thumb) ), t.logo.url %>
+	<% end %>
+
+
+<% t.users.each do |user| %>
+	<%= link_to user.try(:name), user_path(user) %>
+	在書架上新增了
 <% end %>
-
-</br>
-
-<div class="form-group">
-  <%= f.file_field :logo %>
-</div>
-
-
-<p>Hello Word<p>
+<%= link_to t.title, book_path(t) %></br>
+作者為<%= t.author %></br>
+<%#= t.description%>
+<%#= t.comments.count %>
+<%end%>
