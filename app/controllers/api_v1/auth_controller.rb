@@ -1,6 +1,6 @@
 class ApiV1::AuthController < ApiController
 
-	before_action :require_login, :only => :destroy
+	before_action :require_login, :except => :create
 
 	# POST /api/v1/login
   def create
@@ -28,6 +28,18 @@ class ApiV1::AuthController < ApiController
     current_user.save!
 
     render :json => { :message => "Ok" }
+  end
+
+  def friends
+    users = User.all.to_a.delete_if{ |x| x == current_user }
+
+    render :json => users.map{ |u| 
+      { :id => u.id,
+        :name => u.name,
+        :avatar_url => u.avatar_url,
+        :email => u.email
+      }
+    }
   end
 
 end

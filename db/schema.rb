@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203094641) do
+ActiveRecord::Schema.define(version: 20141205101727) do
 
   create_table "books", force: true do |t|
     t.string   "isbn"
@@ -50,9 +50,13 @@ ActiveRecord::Schema.define(version: 20141203094641) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "lend_to_user_id"
+    t.integer  "borrow_from_user_id"
   end
 
   add_index "user_books", ["book_id"], name: "index_user_books_on_book_id"
+  add_index "user_books", ["borrow_from_user_id"], name: "index_user_books_on_borrow_from_user_id"
+  add_index "user_books", ["lend_to_user_id"], name: "index_user_books_on_lend_to_user_id"
   add_index "user_books", ["user_id"], name: "index_user_books_on_user_id"
 
   create_table "users", force: true do |t|

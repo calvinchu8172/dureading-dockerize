@@ -56,6 +56,13 @@ class ApiV1::BooksController < ApiController
 		render :json => { :message => "Ok" }
 	end
 
+	def rent
+		render :json => {
+			:lend => [],
+			:borrow => []
+		}
+	end
+
 	protected
 
 	def find_or_create_book_information(isbn)

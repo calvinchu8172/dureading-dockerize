@@ -17,9 +17,10 @@ Rails.application.routes.draw do
     end
 
     resources :comments
+
+    get "/friends" => "auth#friends"
+    get "/rent" => "books#rent"
   end
-
-
 
    get '/auth/:provider/callback', :to => 'sessions#create'
    get '/auth/failure', to: 'sessions#failure'
