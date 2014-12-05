@@ -41,8 +41,8 @@ class BooksController < ApplicationController
 	end
 
 	def destroy
-  		@book = current_user.books.find(params[:id])
-  		@book.destroy
+  		@user_book = current_user.user_books.where( :book_id => params[:id] ).first
+  		@user_book.destroy
 
   		redirect_to user_url(current_user)
 	end

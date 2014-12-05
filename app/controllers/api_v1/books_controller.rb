@@ -41,12 +41,32 @@ class ApiV1::BooksController < ApiController
 
 	# POST /api/v1/books  新增一本書
 	def create
-		render :json => { :message => "Ok", :book_id => 123 }
+		@book = find_or_create_book_information( params[:isbn] )
+		@book.save
+		@book.user_books.create( :user_id => current_user.id )
+
+		render :json => { :message => "Ok", :book_id => @book.id }
 	end
 
 	# DELETE /api/v1/books/{id} 刪除書
 	def destroy
+  	@user_book = current_user.user_books.where( :book_id => params[:id] ).first
+  	@user_book.destroy
+
 		render :json => { :message => "Ok" }
+	end
+
+	protected
+
+	def find_or_create_book_information(isbn)
+		book = Book.where( :isbn => isbn ).first
+		unless book
+			book = Book.new( :isbn => isbn )
+			book.fill_goodreads
+			book.save!
+		end
+
+		book
 	end
 
 end
