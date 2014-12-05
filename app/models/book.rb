@@ -16,19 +16,20 @@ class Book < ActiveRecord::Base
 	    	response = conn.get "/book/isbn", { :isbn => self.isbn, :key => "WJGaq9KTqxo5n03ngpxRg" }
 	   
 	   		book_hash = Hash.from_xml( response.body )     
-
-	   		# Rails.logger.debug(book_hash.inspect) #add by 雨蒼
 	   		
-	   		#self.title = book_hash["GoodreadsResponse"]["book"]["title"]
-	   		#self.author = book_hash["GoodreadsResponse"]["book"]["authors"]["author"]["name"]
+	   		self.title = book_hash["GoodreadsResponse"]["book"]["title"]
+	   		self.author = book_hash["GoodreadsResponse"]["book"]["authors"]["author"]["name"]
 	   		
-	   		# TODO: more attributes
-			# self.description
-			# self.pages
-			# self.cover_large_url
-			# self.cover_small_url
-			# self.publisher
-			# self.publish_date
+			  self.description = book_hash["GoodreadsResponse"]["book"]["description"]
+			  self.pages = book_hash["GoodreadsResponse"]["book"]["num_pages"]
+			  self.cover_large_url = book_hash["GoodreadsResponse"]["book"]["image_url"]
+			  self.cover_small_url = book_hash["GoodreadsResponse"]["book"]["small_image_url"]
+			  self.publisher = book_hash["GoodreadsResponse"]["book"]["publisher"]
+			  
+			  y = book_hash["GoodreadsResponse"]["book"]["publication_year"]
+			  m = book_hash["GoodreadsResponse"]["book"]["publication_month"]
+			  d = book_hash["GoodreadsResponse"]["book"]["publication_day"]
+			  self.publish_date = "#{y}-#{m}-#{d}"
 		else
 			self.title ||= "N/A"
 		end
