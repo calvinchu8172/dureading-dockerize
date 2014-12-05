@@ -1,5 +1,7 @@
 class ApiV1::CommentsController < ApiController
 
+  before_action :require_login
+  
 	# POST /ap1/v1/books/{book_id}/comments 
 	def create
 		render :json => { :message => "Ok", :comment_id => 456 }

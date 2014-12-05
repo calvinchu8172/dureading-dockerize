@@ -1,61 +1,41 @@
 class ApiV1::BooksController < ApiController
 
+	before_action :require_login
+	
 	# GET /ap1/v1/books 拿所有書櫃的書跟留言
 	def index
+		@user_books = current_user.user_books
+
 		render :json => { 
-			:books => [
-				{
-					:id => 1,
-					:user_id => 1,
-					:isbn => "1234567890",
-					:title => "Test Book",
-					:author => "ihover",
-					:description => "blahblahblahblahblahblahblah",
-					:pages => 500,
-					:publish_date => Date.today,
-					:cover_large_url => "http://d2hsbzg80yxel6.cloudfront.net/images/87083/medium/ACL038700.jpg",					
-					:cover_small_url => "http://d2hsbzg80yxel6.cloudfront.net/images/87083/original/ACL038700.jpg",
-					:publisher => "AlphaCamp",
-					:updated_at => Time.now,
-					:created_at => Time.now,							
-					:comments => [
-						{
-							:id => 1,
-							:user_id => 1,
-							:content => "Good Book!",
-							:photo_small_url => nil,
-							:photo_large_url => nil,
-							:updated_at => Time.now,
-							:created_at => Time.now							
-						},
-						{
-							:id => 2,
-							:user_id => 1,
-							:content => "Bad Book!",
-							:photo_small_url => nil,
-							:photo_large_url => nil,
-							:updated_at => Time.now,
-							:created_at => Time.now							
-						}						
-					]					
-				},
-				{
-					:id => 2,
-					:user_id => 1,
-					:isbn => "abcd1234567",
-					:title => "Demo Book",
-					:author => "jimmy",
-					:description => "blahblahblahblahblahblahblah",
-					:pages => 100,
-					:publish_date => Date.today,
-					:cover_large_url => "http://ecx.images-amazon.com/images/I/510KFpOXmAL.jpg",					
-					:cover_small_url => "http://ecx.images-amazon.com/images/I/510KFpOXmAL.jpg",
-					:publisher => "AlphaCamp",
-					:updated_at => Time.now,
-					:created_at => Time.now,
-					:comments => []					
-				}				
-			] 
+				:books => @user_books.map{ |user_book|
+					book = user_book.book
+				  {
+				 	  :id => user_book.book_id, # Book ID
+					  :user_id => user_book.user_id,
+					  :isbn => book.isbn,
+					  :title => book.title,
+						:author => book.author,
+						:description => book.description,
+						:pages => book.pages,
+						:publish_date => book.publish_date,
+						:cover_large_url => full_url(book.logo.url),	
+						:cover_small_url => full_url(book.logo.url(:thumb)),
+						:publisher => book.publisher,
+						:updated_at => user_book.updated_at,
+						:created_at => user_book.created_at,
+						:comments => book.comments.map { |comment|
+							{
+								:id => comment.id,
+								:user_id => comment.user_id,
+								:content => comment.content,
+								:photo_large_url => full_url(comment.photo.url),
+								:photo_small_url => full_url(comment.photo.url(:thumb)),
+								:updated_at => comment.updated_at,
+								:created_at => comment.created_at,
+							}
+						}						  
+				  }
+			}
 		}
 	end
 

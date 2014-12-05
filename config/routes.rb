@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
 
   # API
-  scope :path => '/api/v1/', :module => "api_v1", :as => 'v1' do
+  scope :path => '/api/v1/', :module => "api_v1", :defaults => { :format => :json }, :as => 'v1' do
     
     post "/login" => "auth#create"
     post "/logout" => "auth#destroy"
