@@ -35,12 +35,17 @@ RSpec.describe "API_V1::Books", :type => :request do
 		post "/api/v1/books/#{@book.id}/comments", :content => "good", :auth_token => @user.token
 
 		expect(response).to have_http_status(200)
+
+		expect( Comment.last.content ).to eq("good")
 	end
 
 	example "DELETE /api/v1/comments/:id" do
-		delete "/api/v1/comments/456", :auth_token => @user.token
+		comment = Comment.create!( :book => @book, :user => @user, :content => "test" )
+
+		delete "/api/v1/comments/#{comment.id}", :auth_token => @user.token
 
 		expect(response).to have_http_status(200)
+		expect( Comment.count ).to eq(0)
 	end
 
 end	
