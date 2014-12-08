@@ -18,8 +18,9 @@
 
 </br>
 
-<%= link_to '首頁', books_path %>
 
+<%= link_to "Du 登入頁面", root_path %>
+<%= link_to 'Du 首頁', books_path %>
 <% if current_user %>
 	<%= link_to '我的書櫃', user_path(current_user) %></br>
 <% end %>
