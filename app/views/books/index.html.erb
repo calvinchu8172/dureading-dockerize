@@ -1,15 +1,19 @@
+
+
 <% @books.each do |t| %>
+<div class="all_book">
 <% if t.logo.exists? %> 
-	<%= link_to image_tag( t.logo.url(:thumb) ), t.logo.url %>
+	<div class="book_logo"><%= link_to image_tag( t.logo.url(:thumb) ), t.logo.url %></div>
 	<% end %>
 
 
 <% t.users.each do |user| %>
 	<%= link_to user.try(:name), user_path(user) %>
-	在書架上新增了
+	在書架上新增了 
 <% end %>
 <%= link_to t.title, book_path(t) %></br>
-作者為<%= t.author %></br>
+作者為 <%= t.author %></br>
 <%#= t.description%>
 <%#= t.comments.count %>
-<%end%>
+</div>
+<%end%>	

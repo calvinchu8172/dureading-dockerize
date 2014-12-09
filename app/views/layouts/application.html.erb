@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dureading</title>
+  <title>DùReading</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,21 +9,38 @@
 </head>
 <body>
 
-<% if current_user %>
-  Hi, <%= current_user.name %>
-  <%= link_to "登出", auth_signout_path, :method => :delete %></a>
-<% else %>
- <%= link_to "Facebook 登入", "/auth/facebook" %></a>
-<% end %>
+<div class="header"></div>
+<div class="wrapper">
+  <div class="du_login"><%= link_to image_tag("icon.jpg", :size => "120x120", :alt => "du_logo"), root_path %></div>
+  <div class="dureading">DùReading</div>
+</div>
+
+<div class="side">
+  <div class="fb">
+  <% if current_user %>
+    Hi, <%= current_user.name %>
+    <%= link_to "登出", auth_signout_path, :method => :delete %></a>
+  <% else %>
+    <%= link_to "Facebook 登入", "/auth/facebook" %></a>
+  <% end %>
+  </div>
+
+  <div class="all_books">
+    <%= link_to '大家的書', books_path %>
+  </div>
+
+  <div class="my_shelf">
+    <% if current_user %>
+      <%= link_to '我的書櫃', user_path(current_user) %></br>
+    <% end %>
+  </div>
+</div>
+
+<%#= link_to "Du 登入頁面", root_path %>
+
 
 </br>
 
-
-<%= link_to "Du 登入頁面", root_path %>
-<%= link_to 'Du 首頁', books_path %>
-<% if current_user %>
-	<%= link_to '我的書櫃', user_path(current_user) %></br>
-<% end %>
 
 <%= yield %>
 

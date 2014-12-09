@@ -4,10 +4,10 @@
   <!-- <img src="/images/icon.jpg" alt="rss feed" /> -->
   <!-- <img src="app/assets/images/bg.jpg" alt="i am slider"> -->
 </div>
-<div class="du_logo">
-    <%= image_tag("icon.jpg", :size => "400x400", :alt => "du_logo")%>
+<div class="du_logo", title="Welcome to DUreading!">
+    <%= link_to image_tag("icon.jpg", :size => "400x400", :alt => "du_logo"), books_path %>
 </div>  
-<div class="log_in">
+<div class="log_in", title="Please log in">
   <% if current_user %>
   Hi, <%= current_user.name %>
   <%= link_to "登出", auth_signout_path, :class => "a", :method => :delete %>

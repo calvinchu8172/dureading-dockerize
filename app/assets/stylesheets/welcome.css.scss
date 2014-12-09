@@ -3,16 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 *{margin: 0; padding: 0; list-style: none}
 .welcome{
-	/*top:-50px;*/
-  /*position:absolute;*/
+	top:0px;
+  position:absolute;
   width: 1280px;
   height: 800px;
-  background-image: image-url("bg.jpg");
+  background-image: url("bg.jpg");
   -webkit-filter: blur(2px);
+  
 }
 
 .du_logo{
-  top:200px;
+  top:100px;
   left:440px;
   position: absolute;
   width: 400px;
@@ -31,7 +32,7 @@
   line-height: 60px;
   background-color: #49659F;
   left:490px;
-  top:650px;
+  top:550px;
   position: absolute;
   color: #fff;
   font-size: 25px;
