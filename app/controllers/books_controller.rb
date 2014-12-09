@@ -15,17 +15,14 @@ class BooksController < ApplicationController
 
 	def create	
 		@book = find_or_create_book_information(book_params)
-		@book.save
-		@book.user_books.create( :user_id => current_user.id )
-		# Rails.logger.debug(@book.inspect) #add by 雨蒼
 
-		# TODO: create UserBook 20141202
-		#@book = current_user.user_books.new( :book => @book )
-		#@book.user = current_user
-		
-		#redirect_to books_url
-		redirect_to user_url(current_user)
-		# redirect_to :action => :show, :id => @event
+    if @book
+		  @book.user_books.create( :user_id => current_user.id )
+      redirect_to user_url(current_user)
+    else
+      flash[:alert] = "ISBN 查無此書"
+      redirect_to :back
+    end
 	end
 
 	def edit
@@ -51,16 +48,18 @@ class BooksController < ApplicationController
 	protected
 
 	def find_or_create_book_information(params) #fix by 雨蒼
+    # find existed book
 		book = Book.where( :isbn => params[:isbn] ).first
-		unless book
-			book = Book.new(params)
-			# Rails.logger.debug(book) #add by 雨蒼
-			book.fill_goodreads
-			# Rails.logger.debug(book) #add by 雨蒼
-			book.save!
-		end
+    return book if book
 
-		book
+    # try to create new book based on ISBN
+		book = Book.new(params)
+		book.fill_goodreads
+		if book.save
+      return book
+    else
+      return nil
+    end
 	end
 
 	def book_params

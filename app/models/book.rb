@@ -1,6 +1,8 @@
 class Book < ActiveRecord::Base
 
-	has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+		validates_presence_of :title
+
+	  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
     validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
     has_many :user_books
@@ -17,24 +19,24 @@ class Book < ActiveRecord::Base
 	   
 	   		book_hash = Hash.from_xml( response.body )     
 	   		
-	   		self.title = book_hash["GoodreadsResponse"]["book"]["title"]
-	   		self.author = book_hash["GoodreadsResponse"]["book"]["authors"]["author"]["name"]
-	   		
-			  self.description = book_hash["GoodreadsResponse"]["book"]["description"]
-			  self.pages = book_hash["GoodreadsResponse"]["book"]["num_pages"]
-			  self.cover_large_url = book_hash["GoodreadsResponse"]["book"]["image_url"]
-			  self.cover_small_url = book_hash["GoodreadsResponse"]["book"]["small_image_url"]
-			  self.publisher = book_hash["GoodreadsResponse"]["book"]["publisher"]
-			  
-			  y = book_hash["GoodreadsResponse"]["book"]["publication_year"]
-			  m = book_hash["GoodreadsResponse"]["book"]["publication_month"]
-			  d = book_hash["GoodreadsResponse"]["book"]["publication_day"]
-			  self.publish_date = "#{y}-#{m}-#{d}"
-		else
-			self.title ||= "N/A"
+	   		unless book_hash["error"]
+		   		self.title = book_hash["GoodreadsResponse"]["book"]["title"]
+		   		self.author = book_hash["GoodreadsResponse"]["book"]["authors"]["author"]["name"]
+		   		
+				  self.description = book_hash["GoodreadsResponse"]["book"]["description"]
+				  self.pages = book_hash["GoodreadsResponse"]["book"]["num_pages"]
+				  self.cover_large_url = book_hash["GoodreadsResponse"]["book"]["image_url"]
+				  self.cover_small_url = book_hash["GoodreadsResponse"]["book"]["small_image_url"]
+				  self.publisher = book_hash["GoodreadsResponse"]["book"]["publisher"]
+				  
+				  y = book_hash["GoodreadsResponse"]["book"]["publication_year"]
+				  m = book_hash["GoodreadsResponse"]["book"]["publication_month"]
+				  d = book_hash["GoodreadsResponse"]["book"]["publication_day"]
+			  	self.publish_date = "#{y}-#{m}-#{d}"
+			  end
 		end
 
-   		return self
+   	return self
 	end
 
 end
