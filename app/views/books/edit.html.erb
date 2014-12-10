@@ -1,22 +1,18 @@
-<%= link_to image_tag( @book.logo.url(:thumb) ), @book.logo.url %></br>
-
+<div class="note">
+<div class="note_container">
+<div class="book_logo">
+<%= link_to image_tag( @book.logo.url(:thumb) ), @book.logo.url %>
+</div>
 <%= form_for @book, :url => book_path(@book), :html => { :multipart => true }, :method => "patch" do |f| %>    
 
-	<%= f.file_field :logo %></br>
+	
+    <%= render :partial => 'form', :locals => { :f => f } %>
 
-    <%= f.label :title, "Book Name" %>
-    <%= f.text_field :title %></br>
 
-    <%= f.label :isbn, "ISBN" %>
-    <%= f.text_field :isbn %></br>
-
-    <%= f.label :author, "Author" %>
-    <%= f.text_field :author %></br>
-
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description %></br>
-
-	<%= f.submit "Update" %>
 <% end %>
 
-<%= link_to 'Go Back', user_url(current_user) %>
+</div>
+<div class="go_back"><%= link_to 'Go Back', user_url(current_user) %></div>
+
+
+</div>

@@ -1,7 +1,7 @@
-
-
+<div class="container">
+  <%= paginate @books %>
 <% @books.each do |t| %>
-<div class="all_book">
+<div class="book">
 <% if t.logo.exists? %> 
 	<div class="book_logo"><%= link_to image_tag( t.logo.url(:thumb) ), t.logo.url %></div>
 	<% end %>
@@ -17,3 +17,4 @@
 <%#= t.comments.count %>
 </div>
 <%end%>	
+</div>

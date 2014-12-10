@@ -1,14 +1,35 @@
-.all_book{
+.container{
+  width:1080px;
+  height:800px;
+  background-color: #e0d4be;
+  float: left;
+  overflow: auto;
+  /*overflow: scroll;*/
+  background-image: image-url("1.jpg");
+  background-size: 1080px 800px;
+  background-repeat: no-repeat;
+  /*background-image: -webkit-gradient(linear, left top, right bottom, from(#f00), to(black));*/
+// background-image: -webkit-linear-gradient(300deg, #f00, black);
+/*background-image: -moz-linear-gradient(238deg, #f00, black);*/
+/*background-image: -o-linear-gradient(238deg, #f00, black);*/
+/*background-image: -ms-linear-gradient(238deg, #f00, black);*/
+/*background-image: linear-gradient(238deg, #f00, black);*/
+
+}
+
+.book{
   width:200px;
   height:200px;
-  background-color: #e0d4be;
+  background-color: #242d3f;
   float: left;
   margin: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  box-shadow: 10px 10px 5px #000;
 }
 
-.all_book:hover{
+.book:hover{
+  -webkit-animation: aniName1 0.25s linear 1;
   width:200px;
   height:200px;
   background-color: #e0d4be;
@@ -18,4 +39,116 @@
   margin: 20px;
   margin-top: 10px;
   margin-bottom: 30px;
+  box-shadow: 20px 20px 10px #000;
 }
+
+@-webkit-keyframes aniName1{
+0%{ 
+  width:200px;
+  height:200px;
+  background-color: #242d3f;
+
+  float: left;
+  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 5px #000;
+  }
+
+100%{
+  width:200px;
+  height:200px;
+  background-color: #e0d4be;
+  border-color: #000;
+  border: 1px;
+  float: left;
+  margin: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  box-shadow: 20px 20px 10px #000;
+  }
+}
+
+.note{
+  width:1080px;
+  height:800px;
+  background-color: #e0d4be;
+  float: right;
+  overflow: auto;
+  overflow: scroll;
+  background-image: image-url("note_bg.png");
+  background-size: 1080px 800px;
+  // background-position: center;
+  background-repeat: no-repeat;
+  // position: relative;
+}
+
+.note_container{
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px; 
+  min-height:600px;
+}
+.book_logo {
+  width: 100px;
+  height:100px;
+}
+.file_field{
+  width: 500px;
+  height:40px;
+  line-height: 40px;
+}
+
+.label{
+  width: 150px;
+  height:40px;
+  line-height: 40px;
+  float: left;
+}
+.text_field{
+  width: 350px;
+  height:40px;
+  line-height: 40px;
+  float: left;
+}
+.text_area{
+  width: 350px;
+  height:210px;
+  line-height: 40px;
+  float: left;
+  // background-color: #00F;
+}
+
+.go_back{
+  width: 100px;
+  height:40px;
+  background-color: #555;
+  border-radius: 10px;
+  line-height: 40px;
+  text-align: center;
+  float:left;
+}
+.submit_button{
+  width: 100px;
+  height:40px;
+  line-height: 40px;
+  float:left;
+}
+
+.text_field input{
+  width: 350px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 8px;
+}
+textarea{
+  border: 2px inset;
+  margin-top: 5px;
+  width: 350px;
+  height: 200px;
+  line-height: 30px;
+  border-radius: 8px;
+
+}
+

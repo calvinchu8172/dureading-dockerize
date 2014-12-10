@@ -1,21 +1,13 @@
+<div class="note">
+<div class="note_container">
 <%= form_for @book, :url => { :controller => 'books', :action => 'create' } do |f| %>
     
-	<%= f.file_field :logo %></br>
+	<%= render :partial => 'form', :locals => { :f => f } %>
 
-    <%= f.label :title, "Book Name" %>
-    <%= f.text_field :title %></br>
-
-    <%= f.label :isbn, "ISBN" %>
-    <%= f.text_field :isbn %></br>
-
-    <%= f.label :author, "Author" %>
-    <%= f.text_field :author %></br>
-
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description %></br>
-
-    <%= f.submit "Create" %>
 <% end %>
 
-<%#= link_to 'Back', :back %>
-<%= link_to 'Go Back', user_url(current_user) %>
+</div>
+<div class="go_back"><%= link_to 'Go Back', user_url(current_user) %></div>
+
+
+</div>
