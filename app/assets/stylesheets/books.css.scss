@@ -76,13 +76,22 @@
   float: right;
   overflow: auto;
   overflow: scroll;
-  background-image: image-url("note_bg.png");
-  background-size: 1080px 800px;
+  // background-image: image-url("note_bg.png");
+  
   // background-position: center;
   background-repeat: no-repeat;
   // position: relative;
 }
-
+.note_bg{ 
+  background-image: image-url("note_bg.png");
+  background-size: 1080px 800px;
+}
+.comment_bg
+{ background-image: image-url("comment_bg.png");
+  background-position: 50% 20%;
+  // background-attachment: fixed;
+  
+}
 .note_container{
   margin-top: 100px;
   margin-left: auto;
@@ -150,5 +159,11 @@ textarea{
   line-height: 30px;
   border-radius: 8px;
 
+}
+
+.ccc{
+  position: absolute;
+  top:800px;
+  left:300px;
 }
 

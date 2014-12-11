@@ -1,3 +1,5 @@
+<div class="note comment_bg">
+  <div class="note_container">
 請留下對此書的感想</br>
 
 書名：<%=@book.title %></br>
@@ -18,13 +20,16 @@
 
 <% end %>
 
-<p>新增留言</p>
+<p><%= current_user.name %>新增留言或圖片</p>
 <%= form_for Comment.new, :url => book_comments_path(@book), :html => { :multipart => true } do |f| %>
 
-  <div class="label"><%= f.label :content %></div>
-  <div class="text_field"><%= f.text_field :content %></div>
+  <div class="label"><%= f.label :content, "留言" %></div>
+  <div class="text_area"><%= f.text_area :content %></div>
+  <div class="label"><%= f.label :photo, "圖片" %></div>
   <div class="file_field"><%= f.file_field :photo %></div>
 
-  <div class="submit_button"><%= f.submit "Reply" %></div>  
+  <div class="submit_button ccc"><%= f.submit "Reply" %></div>  
 
 <% end %>
+  </div>
+</div>
