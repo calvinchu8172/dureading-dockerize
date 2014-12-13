@@ -9,7 +9,7 @@
 
 <% @book.comments.each do |c| %>
 <div class="each_comment_wrapper">
-  <div class="comment_content"><%= c.content %></div>
+  <div class="comment_content"><%= simple_format c.content %></div>
   <% if c.photo.exists? %>
 		<div class="comment_image"><%= link_to image_tag(c.photo.url(:thumb)), c.photo.url %></div>
 	<% end %>

@@ -11,7 +11,7 @@
 	<%= t.title %>
 	<%#= t.isbn %>
 	<%= t.author %>
-	<%#= t.description %>
+	<%= simple_format t.description %>
 	<% if current_user == @user %>
 	<%= link_to '刪除此書', book_path(t), :method => :delete %>
 	<%= link_to '編輯此書', edit_book_path(t) %>
