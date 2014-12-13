@@ -2,7 +2,40 @@
 .add_book{
   width: 80px;
   height: 80px;
-  // color: #000;
   float:left;
-  // background-color: #F00;
+}
+.book_title, .book_author{
+  width:120px;
+  height: 15px;
+  overflow: hidden;
+  text-align: center;
+  color: #FFF;
+  margin-left: 15px;
+}
+
+.book_owner{
+  width:120px;
+  height: 15px;
+  overflow: hidden;
+  text-align: center;
+  color: #FFF;
+  margin: 25px 0 0 15px;
+}
+.book_owner a{
+  text-decoration: none;
+  color: #FFF;
+}
+.book_owner a:hover{
+  text-decoration: none;
+  color: #999;
+}
+.option_icons{
+  -webkit-filter:invert(1);
+}
+.option_icons img{
+  margin-left: 13px;
+  margin-top: 15px;
+}
+.option_icons img:hover{
+  background-color: #aaa;
 }

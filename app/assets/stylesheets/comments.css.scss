@@ -1,8 +1,6 @@
 .comment_wrapper{
   width: 500px; 
   min-height:0px;
-  // background-color: #EEE;
-  // margin-bottom: 20px;
   padding: 10px 0;
 
 }
@@ -14,10 +12,8 @@
   border-radius: 10px;
 }
 .comment_content{
-  // background-color: #44F;
   width: 440px;
   min-height: 0px;
-  // opacity: 0.6;
   line-height: 20px;
   margin: 0px 10px 0px 10px;
 
@@ -44,7 +40,6 @@
 .comment_bg
 { background-image: image-url("comment_bg.png");
   background-position: 50% 20%;
-  // background-attachment: fixed;
 }
 
 .reply_button{

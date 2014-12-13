@@ -1,24 +1,35 @@
 <div class="container">
   <%= paginate @books %>
+
 <% @books.each do |t| %>
-<div class="book">
-<% if t.logo.exists? %> 
+<div class="book_wrapper">
+
+  <% if t.logo.exists? %> 
 	<div class="book_logo">
-    <%#= link_to image_tag( t.logo.url(:thumb) ), t.logo.url %>
     <%= link_to image_tag( t.logo.url(:thumb) ), book_path(t) %>
   </div>
-	<% end %>
 
-<%= link_to t.title, book_path(t) %></br>
-<%= t.author %></br>
+<% else %>
+
+  <div class="book_logo">
+    <%= link_to image_tag( "missing.png" ), book_path(t) %>
+  </div>
+
+<% end %>
+
+<div class="book_title"><%= t.title %></div>
+<div class="book_author"><%= t.author %></div>
 
 
 <% t.users.each do |user| %>
-	<%= link_to user.try(:name), user_path(user) %>的書
+  <div class="book_owner">
+    Owner: <%= link_to user.try(:name), user_path(user) %>
+  </div>
 <% end %>
 
 
 
 </div>
 <%end%>	
+
 </div>

@@ -1,21 +1,22 @@
 
 <div class="welcome">
-	<%#= image_tag("bg.jpg") %>
-  <!-- <img src="/images/icon.jpg" alt="rss feed" /> -->
-  <!-- <img src="app/assets/images/bg.jpg" alt="i am slider"> -->
+
 </div>
-<div class="du_logo", title="Welcome to DUreading!">
+
+<div class="welcome_wrapper">
+  <div class="du_logo", title="Welcome to DUreading!">
     <%= link_to image_tag("du_logo.png", :size => "400x400", :alt => "du_logo"), books_path %>
-</div>  
-<div class="log_in", title="Please log in">
-  <% if current_user %>
-  Hi, <%= current_user.name %>
-  <%= link_to "登出", auth_signout_path, :class => "a", :method => :delete %>
-<% else %>
- <%= link_to "Facebook 登入", "/auth/facebook", :class => "a" %>
- <%#= button_to "Facebook 登入", "/auth/facebook", {:class => "button"} %>
- <%#= button_to "Show Me", {:controller => 'personal', :action => "add" }, {:class => "buttonTo" } %>
-<% end %>
+  </div>  
+
+  <div class="log_in", title="Please log in">
+    <% if current_user %>
+      Hi, <%= current_user.name %>
+    <%= link_to "登出", auth_signout_path, :class => "a", :method => :delete %>
+    <% else %>
+    <%= link_to "Facebook 登入", "/auth/facebook", :class => "a" %>
+    <% end %>
+  </div>
+
 </div>
 
 

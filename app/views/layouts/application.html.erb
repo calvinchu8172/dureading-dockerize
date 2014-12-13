@@ -21,14 +21,12 @@
 
     
   
-    <div class="all_books">
-      <%#= link_to '大家的書', books_path %>
+    <div class="my_all_books">
       <%= link_to image_tag("all_books.png", :size => "60x60", :alt => "all_book"), books_path %>
     </div>
 
     <div class="my_shelf">
       <% if current_user %>
-        <%#= link_to '我的書櫃', user_path(current_user) %>
         <%= link_to image_tag("my_book.png", :size => "60x60", :alt => "my_book"), user_path(current_user) %>
       <% end %>
     </div>
@@ -36,20 +34,21 @@
   
     <% if current_user == @user %>
     <div class="add_book">
-      <%#= link_to '新增書籍', new_book_path %>
       <%= link_to image_tag("add_book.png", :size => "60x60", :alt => "add_book"), new_book_path %>
     </div>
     <% end %>
 
 
-    <div class="fb">
-      <%= link_to image_tag("fb_icon.png", :size => "40x40", :alt => "du_logo"), "https://www.facebook.com/groups/712397085507920/" %>
+    <div class="fb_wrapper">
+      <%= link_to image_tag("fb_icon.png", :size => "80x80", :alt => "du_logo"), "https://www.facebook.com/dureading" %>
     <% if current_user %>
+      <div class="fb_user">
       Hi, <%= current_user.name %>
       <%= link_to "登出", auth_signout_path, :method => :delete %></a>
     <% else %>
       <%= link_to "Facebook 登入", "/auth/facebook" %></a>
     <% end %>
+      </div>
     </div>
 
   </div>

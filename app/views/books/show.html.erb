@@ -2,9 +2,20 @@
   <div class="note_container">
 
 
-<div class="book_logo"><%= link_to image_tag( @book.logo.url(:thumb) ), @book.logo.url %></div>
-<div class="book_title"><%=@book.title %></div>
+<div class="book_logo">
+  <% if @book.logo.exists? %> 
+    <%= link_to image_tag( @book.logo.url(:thumb) ), @book.logo.url %>
+  <% else %>
+    <%= link_to image_tag( "missing.png" ), book_path(@book) %>
+  <%end%>
+</div>
 
+<div class="book_title">
+  <%= @book.title %><br>
+  <%= @book.author %><br>
+  <%= @book.isbn %><br>
+  <%= simple_format @book.description %><br>
+</div>
 <div class="comment_wrapper">
 
 <% @book.comments.each do |c| %>

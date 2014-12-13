@@ -2,36 +2,35 @@
   width:1280px;
   height:800px;
   background-color: #e0d4be;
-  float: right;
-  // overflow: auto;
+  float: left;
   background-image: image-url("bookshelf.jpg");
   background-size: 1280px 800px;
   background-repeat: no-repeat;
   position: relative;
+  margin: auto;
 
 }
 
-.book{
+.book_wrapper{
   width:150px;
   height:200px;
-  background-color: #FFF;
+  background-color: #202937;
   float: left;
-  margin: 55px 31px 10px 31px;
+  margin: 55px 31px 10px 30px;
   box-shadow: 0px -4px 20px 2px #000;
-  background-image: image-url("book-5.png");
-  background-size: 165px 200px;
-  background-position: -6px 0px;
-  border-bottom-left-radius: 23px; 
+  background-size: 150px 207px;
+  background-position: -5px -7px;
+  border-radius: 5px;
 
 }
 
-.book:hover{
+.book_wrapper:hover{
   -webkit-animation: aniName1 0.25s linear 1;
   width:150px;
   height:200px;
-  background-color: #e0d4be;
+  background-color: #202937;
   float: left;
-  margin: 45px 31px 20px 31px;
+  margin: 45px 31px 20px 30px;
   box-shadow: 0px 10px 25px 3px #000;
 }
 
@@ -39,36 +38,35 @@
 0%{ 
   width:150px;
   height:200px;
-  background-color: #FFF;
+  background-color: #202937;
   float: left;
-  margin: 55px 31px 10px 31px;
+  margin: 55px 31px 10px 30px;
   box-shadow: 0px -4px 20px 2px #000;
   }
 
 100%{
   width:150px;
   height:200px;
-  background-color: #e0d4be;
+  background-color: #202937;
   float: left;
-  margin: 45px 31px 20px 31px;
+  margin: 45px 31px 20px 30px;
   box-shadow: 0px 10px 25px 3px #000;
   }
 }
 
 .note{
-  width:1080px;
+  width:1280px;
   height:800px;
   background-color: #e0d4be;
   float: right;
   overflow: auto;
   overflow: scroll;
   background-repeat: no-repeat;
-  // position: relative;
 }
 
 .note_bg{ 
   background-image: image-url("note_bg.png");
-  background-size: 1080px 800px;
+  background-size: 1280px 800px;
 }
 
 .note_container{
@@ -79,8 +77,11 @@
   min-height:600px;
 }
 .book_logo {
+  margin: 0 25px;
+}
+.book_logo img{
   width: 100px;
-  height:100px;
+  height: 100px;
 }
 .file_field{
   width: 500px;
@@ -105,7 +106,6 @@
   height:210px;
   line-height: 40px;
   float: left;
-  // background-color: #00F;
 }
 
 .go_back{
