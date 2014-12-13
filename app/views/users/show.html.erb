@@ -1,8 +1,5 @@
 <%#= link_to '首頁', books_path %>
 <div class="container">
-<% if current_user == @user %>
-<div class="add_book"><%= link_to '新增書籍', new_book_path %></div>
-<% end %>
 
 <%= paginate @books %>
 <% @books.each do |t| %>
@@ -12,11 +9,13 @@
 	<% end %>
 
 	<%= t.title %>
-	<%= t.isbn %>
+	<%#= t.isbn %>
 	<%= t.author %>
-	<%= t.description %>
+	<%#= t.description %>
+	<% if current_user == @user %>
 	<%= link_to '刪除此書', book_path(t), :method => :delete %>
 	<%= link_to '編輯此書', edit_book_path(t) %>
+	<% end %>
 	<%= link_to '留下記錄', book_path(t) %>
 	</br>
 	</div>

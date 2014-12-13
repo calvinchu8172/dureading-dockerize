@@ -3,18 +3,22 @@
 <% @books.each do |t| %>
 <div class="book">
 <% if t.logo.exists? %> 
-	<div class="book_logo"><%= link_to image_tag( t.logo.url(:thumb) ), t.logo.url %></div>
+	<div class="book_logo">
+    <%#= link_to image_tag( t.logo.url(:thumb) ), t.logo.url %>
+    <%= link_to image_tag( t.logo.url(:thumb) ), book_path(t) %>
+  </div>
 	<% end %>
+
+<%= link_to t.title, book_path(t) %></br>
+<%= t.author %></br>
 
 
 <% t.users.each do |user| %>
-	<%= link_to user.try(:name), user_path(user) %>
-	在書架上新增了 
+	<%= link_to user.try(:name), user_path(user) %>的書
 <% end %>
-<%= link_to t.title, book_path(t) %></br>
-作者為 <%= t.author %></br>
-<%#= t.description%>
-<%#= t.comments.count %>
+
+
+
 </div>
 <%end%>	
 </div>

@@ -9,40 +9,54 @@
 </head>
 <body>
 
-<div class="header"></div>
-<div class="wrapper">
-  <div class="du_login"><%= link_to image_tag("icon.jpg", :size => "120x120", :alt => "du_logo"), root_path %></div>
-  <div class="dureading">DùReading</div>
-</div>
+<div class="header">
+  <div class="header_wrapper">
+    <div class="du_login">
+        <%= link_to image_tag("du_logo.png", :size => "80x80", :alt => "du_logo"), root_path %>
+    </div>
+    <div class="dureading">
+         DùReading
+    </div>
+  
 
-<div class="side">
-  <div class="fb">
-  <% if current_user %>
-    Hi, <%= current_user.name %>
-    <%= link_to "登出", auth_signout_path, :method => :delete %></a>
-  <% else %>
-    <%= link_to "Facebook 登入", "/auth/facebook" %></a>
-  <% end %>
-  </div>
+    
+  
+    <div class="all_books">
+      <%#= link_to '大家的書', books_path %>
+      <%= link_to image_tag("all_books.png", :size => "60x60", :alt => "all_book"), books_path %>
+    </div>
 
-  <div class="all_books">
-    <%= link_to '大家的書', books_path %>
-  </div>
-
-  <div class="my_shelf">
-    <% if current_user %>
-      <%= link_to '我的書櫃', user_path(current_user) %></br>
+    <div class="my_shelf">
+      <% if current_user %>
+        <%#= link_to '我的書櫃', user_path(current_user) %>
+        <%= link_to image_tag("my_book.png", :size => "60x60", :alt => "my_book"), user_path(current_user) %>
+      <% end %>
+    </div>
+  
+  
+    <% if current_user == @user %>
+    <div class="add_book">
+      <%#= link_to '新增書籍', new_book_path %>
+      <%= link_to image_tag("add_book.png", :size => "60x60", :alt => "add_book"), new_book_path %>
+    </div>
     <% end %>
+
+
+    <div class="fb">
+      <%= link_to image_tag("fb_icon.png", :size => "40x40", :alt => "du_logo"), "https://www.facebook.com/groups/712397085507920/" %>
+    <% if current_user %>
+      Hi, <%= current_user.name %>
+      <%= link_to "登出", auth_signout_path, :method => :delete %></a>
+    <% else %>
+      <%= link_to "Facebook 登入", "/auth/facebook" %></a>
+    <% end %>
+    </div>
+
   </div>
 </div>
 
-
-<%#= link_to "Du 登入頁面", root_path %>
-
-
-
-<% if flash[:alert] %>
-  <p><%= flash[:alert] %></p>
+      <% if flash[:alert] %>
+      <p><%= flash[:alert] %></p>
 <% end %>
 
 <%= yield %>

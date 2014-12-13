@@ -1,0 +1,54 @@
+.comment_wrapper{
+  width: 500px; 
+  min-height:0px;
+  // background-color: #EEE;
+  // margin-bottom: 20px;
+  padding: 10px 0;
+
+}
+.each_comment_wrapper{
+  width:450px;
+  min-height: 0px;
+  background-color: #e0d4be;
+  padding:5px 5px;
+  border-radius: 10px;
+}
+.comment_content{
+  // background-color: #44F;
+  width: 440px;
+  min-height: 0px;
+  // opacity: 0.6;
+  line-height: 20px;
+  margin: 0px 10px 0px 10px;
+
+}
+.comment_image{
+  width: 100px;
+  height: 100px;
+  margin: 0px 10px;
+}
+.arrow{
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 10px 10px;
+  border-style: solid;
+  border-color: #e0d4be  transparent  transparent transparent ;
+  margin-left: 20px;
+}
+.comment_user_date_delete_wrapper{
+  width: 500px;
+  min-height: 30px;
+  margin-bottom: 10px;
+}
+
+.comment_bg
+{ background-image: image-url("comment_bg.png");
+  background-position: 50% 20%;
+  // background-attachment: fixed;
+}
+
+.reply_button{
+}
+.book_title{
+  margin: 5px 0;
+}

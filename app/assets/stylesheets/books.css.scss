@@ -1,71 +1,57 @@
 .container{
-  width:1080px;
+  width:1280px;
   height:800px;
   background-color: #e0d4be;
-  float: left;
-  overflow: auto;
-  /*overflow: scroll;*/
-  background-image: image-url("1.jpg");
-  background-size: 1080px 800px;
+  float: right;
+  // overflow: auto;
+  background-image: image-url("bookshelf.jpg");
+  background-size: 1280px 800px;
   background-repeat: no-repeat;
-  /*background-image: -webkit-gradient(linear, left top, right bottom, from(#f00), to(black));*/
-// background-image: -webkit-linear-gradient(300deg, #f00, black);
-/*background-image: -moz-linear-gradient(238deg, #f00, black);*/
-/*background-image: -o-linear-gradient(238deg, #f00, black);*/
-/*background-image: -ms-linear-gradient(238deg, #f00, black);*/
-/*background-image: linear-gradient(238deg, #f00, black);*/
+  position: relative;
 
 }
 
 .book{
-  width:200px;
+  width:150px;
   height:200px;
-  background-color: #242d3f;
+  background-color: #FFF;
   float: left;
-  margin: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: 10px 10px 5px #000;
+  margin: 55px 31px 10px 31px;
+  box-shadow: 0px -4px 20px 2px #000;
+  background-image: image-url("book-5.png");
+  background-size: 165px 200px;
+  background-position: -6px 0px;
+  border-bottom-left-radius: 23px; 
+
 }
 
 .book:hover{
   -webkit-animation: aniName1 0.25s linear 1;
-  width:200px;
+  width:150px;
   height:200px;
   background-color: #e0d4be;
-  border-color: #000;
-  border: 1px;
   float: left;
-  margin: 20px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  box-shadow: 20px 20px 10px #000;
+  margin: 45px 31px 20px 31px;
+  box-shadow: 0px 10px 25px 3px #000;
 }
 
 @-webkit-keyframes aniName1{
 0%{ 
-  width:200px;
+  width:150px;
   height:200px;
-  background-color: #242d3f;
-
+  background-color: #FFF;
   float: left;
-  margin: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: 10px 10px 5px #000;
+  margin: 55px 31px 10px 31px;
+  box-shadow: 0px -4px 20px 2px #000;
   }
 
 100%{
-  width:200px;
+  width:150px;
   height:200px;
   background-color: #e0d4be;
-  border-color: #000;
-  border: 1px;
   float: left;
-  margin: 20px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  box-shadow: 20px 20px 10px #000;
+  margin: 45px 31px 20px 31px;
+  box-shadow: 0px 10px 25px 3px #000;
   }
 }
 
@@ -76,22 +62,15 @@
   float: right;
   overflow: auto;
   overflow: scroll;
-  // background-image: image-url("note_bg.png");
-  
-  // background-position: center;
   background-repeat: no-repeat;
   // position: relative;
 }
+
 .note_bg{ 
   background-image: image-url("note_bg.png");
   background-size: 1080px 800px;
 }
-.comment_bg
-{ background-image: image-url("comment_bg.png");
-  background-position: 50% 20%;
-  // background-attachment: fixed;
-  
-}
+
 .note_container{
   margin-top: 100px;
   margin-left: auto;
@@ -161,9 +140,5 @@ textarea{
 
 }
 
-.ccc{
-  position: absolute;
-  top:800px;
-  left:300px;
-}
+
 
