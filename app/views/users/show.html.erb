@@ -19,12 +19,12 @@
 
 	<div class="book_title"><%= t.title %></div>
 	<div class="book_author"><%= t.author %></div>
-	<% if current_user == @user %>
 		<div class="option_icons">
-			<%= link_to image_tag("book_delete.png", :size => "30x30", :alt => "book_delete"), book_path(t), :method => :delete %>
-			<%= link_to image_tag("book_edit.png", :size => "30x30", :alt => "book_edit"), edit_book_path(t) %>
-		<% end %>
-			<%= link_to image_tag("comment.png", :size => "30x30", :alt => "comment"), book_path(t) %>
+			<% if current_user == @user %>
+				<%= link_to image_tag("book_delete.png", :size => "30x30", :alt => "book_delete"), book_path(t), :method => :delete %>
+				<%= link_to image_tag("book_edit.png", :size => "30x30", :alt => "book_edit"), edit_book_path(t) %>
+			<% end %>
+				<%= link_to image_tag("comment.png", :size => "30x30", :alt => "comment"), book_path(t) %>
 		</div>
 	</div>
 <% end %>
