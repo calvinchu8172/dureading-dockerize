@@ -11,7 +11,7 @@ body{
   position:relative;
   width: 1280px;
   height: 800px;
-  background-image: image-url("bg.jpg"); /* image-url is SCSS syntax" */
+  // background-image: image-url("bg.jpg"); /* image-url is SCSS syntax" */
   -webkit-filter: blur(2px);
   margin: auto;
   
@@ -53,3 +53,30 @@ body{
   text-decoration:none;
   color: #232d3d;
 }
+
+//slider show
+
+.slider{
+  width: 100%;
+  height: 800px;
+  overflow:hidden;
+  }
+  .pic{
+    width:1280px;
+    position: relative;
+    top:0;
+    left:0;
+  }
+  .pic li{
+    float:left;
+    line-height:0;
+  }
+  .pic li img{
+    width:100%;
+    line-height:0;
+  }
+  .clearFix{
+    width:100%;
+    height:0;
+    clear:both;
+  }
