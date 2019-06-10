@@ -18,7 +18,8 @@ class BooksController < ApplicationController
 		@book = find_or_create_book_information(book_params)
 
     if @book
-		  @book.user_books.create( :user_id => current_user.id )
+		  # @book.user_books.create( :user_id => current_user.id )
+      @book.user_books.create( :user_id => 1 )
       redirect_to user_url(current_user)
     else
       flash[:alert] = "ISBN 查無此書"
