@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-
+  include CheckUser
+  before_action :check_user, :except => :index
 
 	def index
 		@books = Book.all
@@ -11,7 +12,7 @@ class BooksController < ApplicationController
 	end
 
 	def new
-  		@book = Book.new
+  	@book = Book.new
 	end
 
 	def create	
