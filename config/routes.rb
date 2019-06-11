@@ -22,13 +22,13 @@ Rails.application.routes.draw do
     get "/rent" => "books#rent"
   end
 
-   get '/auth/:provider/callback', :to => 'sessions#create'
-   get '/auth/failure', to: 'sessions#failure'
-   delete '/auth/signout', to: 'sessions#destroy'  
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
+  delete '/auth/signout', to: 'sessions#destroy'  
 
-# root :to => "books#index"
-get "welcome" => "welcome#index"
-root :to => "welcome#index"
+  # root :to => "books#index"
+  get "welcome" => "welcome#index"
+  root :to => "welcome#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
