@@ -34,16 +34,17 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth-facebook'
-
 gem 'paperclip'
 gem 'aws-sdk-s3'
 gem 'rails_config', '~> 0.4.2'
-
-gem 'kaminari'
-
-# Use unicorn as the app server
 gem 'unicorn'
 
+# ---------- #
+# - for UI - #
+# ---------- #
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

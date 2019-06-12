@@ -1,0 +1,39 @@
+.pagination {
+  position: absolute;
+  margin: 0 !important;
+  min-width: 20%;
+  a {
+    color: #202937;
+  }
+}
+
+.pagination > li > a
+{
+  background-color: transparent !important;
+  color: #e0d4be !important;
+  border: solid 1px #202937 !important;
+
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+  color: #5a5a5a;
+  background-color: #eee;
+  border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+  color: white !important;
+  background-color: #202937 !important;
+  border: solid 1px #202937 !important;
+}
+
+.pagination > .active > a:hover
+{
+  background-color: #e0d4be !important;
+  border: solid 1px #202937 !important;
+}

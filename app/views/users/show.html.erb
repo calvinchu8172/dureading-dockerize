@@ -1,7 +1,7 @@
 
-<div class="container">
+<div class="book_container">
 
-  <%= paginate @books %>
+  <%= paginate @books, :theme => 'twitter-bootstrap-3' ,:pagination_class => "pagination-sm pagination-centered" %>
   <% @books.each do |t| %>
     <div class="book_wrapper">
       <% if t.logo.exists? %> 
