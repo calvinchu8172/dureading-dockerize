@@ -13,66 +13,65 @@
 
 ActiveRecord::Schema.define(version: 20141205101727) do
 
-  create_table "books", force: true do |t|
-    t.string   "isbn"
-    t.string   "title"
-    t.string   "author"
-    t.text     "description"
-    t.integer  "pages"
-    t.string   "cover_large_url"
-    t.string   "cover_small_url"
-    t.string   "publisher"
+  create_table "books", force: :cascade do |t|
+    t.string   "isbn",              limit: 255
+    t.string   "title",             limit: 255
+    t.string   "author",            limit: 255
+    t.text     "description",       limit: 65535
+    t.integer  "pages",             limit: 4
+    t.string   "cover_large_url",   limit: 255
+    t.string   "cover_small_url",   limit: 255
+    t.string   "publisher",         limit: 255
     t.date     "publish_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
+    t.string   "logo_file_name",    limit: 255
+    t.string   "logo_content_type", limit: 255
+    t.integer  "logo_file_size",    limit: 8
     t.datetime "logo_updated_at"
   end
 
-  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true
+  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true, using: :btree
 
-  create_table "comments", force: true do |t|
-    t.integer  "book_id"
-    t.integer  "user_id"
-    t.text     "content"
+  create_table "comments", force: :cascade do |t|
+    t.integer  "book_id",            limit: 4
+    t.integer  "user_id",            limit: 4
+    t.text     "content",            limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+    t.string   "photo_file_name",    limit: 255
+    t.string   "photo_content_type", limit: 255
+    t.integer  "photo_file_size",    limit: 8
     t.datetime "photo_updated_at"
   end
 
-  create_table "user_books", force: true do |t|
-    t.integer  "book_id"
-    t.integer  "user_id"
+  create_table "user_books", force: :cascade do |t|
+    t.integer  "book_id",             limit: 4
+    t.integer  "user_id",             limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lend_to_user_id"
-    t.integer  "borrow_from_user_id"
+    t.integer  "lend_to_user_id",     limit: 4
+    t.integer  "borrow_from_user_id", limit: 4
   end
 
-  add_index "user_books", ["book_id"], name: "index_user_books_on_book_id"
-  add_index "user_books", ["borrow_from_user_id"], name: "index_user_books_on_borrow_from_user_id"
-  add_index "user_books", ["lend_to_user_id"], name: "index_user_books_on_lend_to_user_id"
-  add_index "user_books", ["user_id"], name: "index_user_books_on_user_id"
+  add_index "user_books", ["book_id"], name: "index_user_books_on_book_id", using: :btree
+  add_index "user_books", ["borrow_from_user_id"], name: "index_user_books_on_borrow_from_user_id", using: :btree
+  add_index "user_books", ["lend_to_user_id"], name: "index_user_books_on_lend_to_user_id", using: :btree
+  add_index "user_books", ["user_id"], name: "index_user_books_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "avatar_url"
-    t.string   "facebook_uid"
-    t.string   "fb_token"
-    t.string   "fb_expires_at"
-    t.string   "token"
+  create_table "users", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.string   "email",         limit: 255
+    t.string   "avatar_url",    limit: 255
+    t.string   "facebook_uid",  limit: 255
+    t.string   "fb_token",      limit: 255
+    t.string   "fb_expires_at", limit: 255
+    t.string   "token",         limit: 255
     t.datetime "token_expired"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
   end
 
-  add_index "users", ["facebook_uid"], name: "index_users_on_facebook_uid"
+  add_index "users", ["facebook_uid"], name: "index_users_on_facebook_uid", using: :btree
 
 end
