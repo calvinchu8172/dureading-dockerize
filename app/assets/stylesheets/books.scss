@@ -60,7 +60,7 @@
   background-color: #e0d4be;
   float: right;
   overflow: auto;
-  overflow: scroll;
+  // overflow: scroll;
   background-repeat: no-repeat;
 }
 
@@ -77,7 +77,7 @@
   min-height:600px;
 }
 .book_logo {
-  margin: 0 25px;
+  margin: 5px 25px 0 25px;
 }
 .book_logo img{
   width: 100px;
