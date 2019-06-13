@@ -2,7 +2,7 @@
   = paginate @books, :theme => 'twitter-bootstrap-3' ,:pagination_class => "pagination-sm pagination-centered"
 
   - @books.each do |book|
-    .col-md-2.book-box
+    .col-md-2.col-sm-2.col-xs-2.book-box
       .book_wrapper
         - if book.logo.exists? 
           .book_logo
