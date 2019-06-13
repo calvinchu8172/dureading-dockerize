@@ -10,19 +10,19 @@
 
     .row.book-details
       .col-md-6
-        Title: 
+        = 'Title:' 
       .col-md-6
         = @book.title
       .col-md-6
-        Arthor: 
+        = 'Arthor:' 
       .col-md-6
         = @book.author
       .col-md-6
-        ISBN:
+        = 'ISBN:'
       .col-md-6
         = @book.isbn
       .col-md-6
-        Description:
+        = 'Description:'
       .col-md-6
         = simple_format @book.description
     

@@ -1,20 +1,22 @@
 .book_container
   = paginate @books, :theme => 'twitter-bootstrap-3' ,:pagination_class => "pagination-sm pagination-centered"
-
+  
   - @books.each do |book|
     .col-md-2.book-box
       .book_wrapper
-        - if book.logo.exists? 
+        - if book.logo.exists?
           .book_logo
             = link_to image_tag( book.logo.url(:thumb) ), book_path(book), :title => "Details of this book"
         - else
           .book_logo
             = link_to image_tag( "missing.png" ), book_path(book), :title => "Details of this book"
+
         .book_title
           = book.title
         .book_author
           = book.author
-        - book.users.each do |user|
-          .book_owner
-            = 'Owner: '
-            = link_to user.try(:name), user_path(user)
+        .option_icons
+          - if current_user == @user
+            = link_to image_tag("book_delete.png", :size => "30x30", :alt => "book_delete"), book_path(book), :method => :delete, :title => "Delete this book"
+            = link_to image_tag("book_edit.png", :size => "30x30", :alt => "book_edit"), edit_book_path(book), :title => "Edit this book"
+          = link_to image_tag("comment.png", :size => "30x30", :alt => "comment"), book_path(book), :title => "Comment this book"

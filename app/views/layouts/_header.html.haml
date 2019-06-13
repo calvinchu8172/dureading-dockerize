@@ -1,0 +1,28 @@
+.header
+  .header_wrapper
+    .du_login
+      = link_to image_tag("du_logo.png", :size => "80x80", :alt => "du_logo"), root_path, :title => "To Main Page"
+    .dureading
+      DùReading
+  
+    .my_all_books
+      = link_to image_tag("all_books.png", :size => "60x60", :alt => "all_book"), books_path, :title => "All books"
+
+      - if current_user
+        .my_shelf
+          = link_to image_tag("my_book.png", :size => "60x60", :alt => "my_book"), user_path(current_user), :title => "My books"
+     
+    - if current_user
+      .add_book
+        = link_to image_tag("add_book.png", :size => "60x60", :alt => "add_book"), new_book_path, :title => "Add new book"
+
+
+    .fb_wrapper
+      = link_to image_tag("fb_icon.png", :size => "80x80", :alt => "du_logo"), "https://www.facebook.com/dureading", :title => "To DUreading FB Page", target: :_blank
+      - if current_user
+        .fb_user
+          = 'Hi, ' + current_user.name
+          = link_to "登出", auth_signout_path, :method => :delete, :title => "Log out"
+      - else
+        .fb_user_link
+          = link_to "Facebook 登入", "/auth/facebook", :title => "Log in"
