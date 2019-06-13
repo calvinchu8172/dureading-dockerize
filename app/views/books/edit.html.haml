@@ -3,7 +3,7 @@
     .row
       .col-md-12.edit-book-logo
         - if @book.logo.exists? 
-          = link_to image_tag( @book.logo.url(:thumb) ), @book.logo.url
+          = link_to image_tag( @book.logo.url(:medium) ), @book.logo.url
         - else
           = link_to image_tag( "missing.png" ), book_path(@book)
     .row

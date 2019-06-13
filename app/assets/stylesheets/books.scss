@@ -49,11 +49,10 @@
 }
 
 .note{
-  width:1280px;
-  height:800px;
+  width: 1280px;
+  min-height: 800px;
   background-color: #e0d4be;
   float: right;
-  overflow: auto;
   background-repeat: no-repeat;
 }
 
@@ -65,7 +64,7 @@
 .note_container{
   margin: 100px auto 0 auto;
   width: 500px; 
-  min-height:600px;
+  // min-height: 800px;
 }
 .book_logo {
   margin: 5px 25px 0 25px;
@@ -79,31 +78,6 @@
   margin-bottom: 20px;
 }
 
-.file_field{
-  width: 500px;
-  height:40px;
-  line-height: 40px;
-}
-
-.label{
-  width: 150px;
-  height:40px;
-  line-height: 40px;
-  float: left;
-}
-.text_field{
-  width: 350px;
-  height:40px;
-  line-height: 40px;
-  float: left;
-}
-.text_area{
-  width: 350px;
-  height:210px;
-  line-height: 40px;
-  float: left;
-}
-
 .go_back{
   width: 100px;
   height:40px;
@@ -113,27 +87,9 @@
   text-align: center;
   float:left;
 }
-.submit_button{
-  width: 100px;
-  height:40px;
-  line-height: 40px;
-  float:left;
-}
 
-.text_field input{
-  width: 350px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 8px;
+.book-details {
+  font-weight: bold;
 }
-textarea{
-  border: 2px inset;
-  margin-top: 5px;
-  width: 350px;
-  height: 200px;
-  line-height: 30px;
-  border-radius: 8px;
-}
-
 
 

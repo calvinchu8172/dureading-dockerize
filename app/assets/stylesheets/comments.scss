@@ -37,13 +37,15 @@
   margin-bottom: 10px;
 }
 
-.comment_bg
-{ background-image: image-url("comment_bg.png");
+.comment_bg { 
+  background-image: image-url("comment_bg.png");
   background-position: 50% 0%;
 }
 
-.reply_button{
-}
 .book_title{
   margin: 5px 0;
+}
+
+.add-comment {
+  margin: 20px 0;
 }
