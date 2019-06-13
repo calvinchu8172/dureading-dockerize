@@ -1,0 +1,4 @@
+.note.note_bg
+  .note_container
+    = form_for @book, :url => { :controller => 'books', :action => 'create' }, :html => {:class => "form-horizontal center"} do |f|
+      = render :partial => 'form', :locals => { :f => f }

@@ -45,6 +45,7 @@ gem 'unicorn'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'hamlit'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

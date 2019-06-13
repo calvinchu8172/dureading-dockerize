@@ -12,11 +12,14 @@
   background-color: transparent !important;
   color: #e0d4be !important;
   border: solid 1px #202937 !important;
-
 }
 
 .pagination > li > a:focus,
 .pagination > li > a:hover,
+{
+  color: white !important;
+}
+
 .pagination > li > span:focus,
 .pagination > li > span:hover
 {

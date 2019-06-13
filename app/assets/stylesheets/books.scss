@@ -11,27 +11,23 @@
 
 }
 
+.book-box {
+  text-align: center;
+}
 .book_wrapper{
   width:150px;
   height:200px;
   background-color: #202937;
-  float: left;
-  margin: 55px 30px 10px 30px;
+  margin: 55px auto 10px auto;
   box-shadow: 0px -4px 20px 2px #000;
   background-size: 150px 207px;
   background-position: -5px -7px;
   border-radius: 5px;
-
-}
-
-.book_wrapper:hover{
-  -webkit-animation: aniName1 0.25s linear 1;
-  width:150px;
-  height:200px;
-  background-color: #202937;
-  float: left;
-  margin: 45px 30px 20px 30px;
-  box-shadow: 0px 10px 25px 3px #000;
+  &:hover {
+    -webkit-animation: aniName1 0.25s linear 1;
+    margin: 45px auto 20px auto;
+    box-shadow: 0px 10px 25px 3px #000;
+  }
 }
 
 @-webkit-keyframes aniName1{
@@ -39,8 +35,7 @@
   width:150px;
   height:200px;
   background-color: #202937;
-  float: left;
-  margin: 55px 30px 10px 30px;
+  margin: 55px auto 10px auto;
   box-shadow: 0px -4px 20px 2px #000;
   }
 
@@ -48,8 +43,7 @@
   width:150px;
   height:200px;
   background-color: #202937;
-  float: left;
-  margin: 45px 30px 20px 30px;
+  margin: 45px auto 20px auto;
   box-shadow: 0px 10px 25px 3px #000;
   }
 }
@@ -60,7 +54,6 @@
   background-color: #e0d4be;
   float: right;
   overflow: auto;
-  // overflow: scroll;
   background-repeat: no-repeat;
 }
 
@@ -70,9 +63,7 @@
 }
 
 .note_container{
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 100px auto 0 auto;
   width: 500px; 
   min-height:600px;
 }
@@ -83,6 +74,11 @@
   width: 100px;
   height: 100px;
 }
+
+.edit-book-logo {
+  margin-bottom: 20px;
+}
+
 .file_field{
   width: 500px;
   height:40px;
