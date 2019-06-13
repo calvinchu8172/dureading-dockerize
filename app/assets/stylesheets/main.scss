@@ -37,9 +37,9 @@
   font-weight: bold;
 }
 
-.my_all_books, .my_shelf, .add_book{
-  width: 60px;
-  height: 60px;
+.header-icons {
+  width: 80px;
+  height: 80px;
   color: #000;
   float: left;
   text-align: center;
@@ -47,11 +47,9 @@
   border: 3px solid #242d3f;
   border-radius: 10px;
   margin:0 20px;
-}
-
-.my_all_books:hover, .my_shelf:hover, .add_book:hover{
-
-  background-color: #999;
+  &:hover {
+    background-color: #999;
+  }
 }
 
 .fb_wrapper{

@@ -5,15 +5,14 @@
     .dureading
       DùReading
   
-    .my_all_books
+    .header-icons
       = link_to image_tag("all_books.png", :size => "60x60", :alt => "all_book"), books_path, :title => "All books"
 
-      - if current_user
-        .my_shelf
-          = link_to image_tag("my_book.png", :size => "60x60", :alt => "my_book"), user_path(current_user), :title => "My books"
-     
     - if current_user
-      .add_book
+      .header-icons
+        = link_to image_tag("my_book.png", :size => "60x60", :alt => "my_book"), user_path(current_user), :title => "My books"
+    - if current_user
+      .header-icons
         = link_to image_tag("add_book.png", :size => "60x60", :alt => "add_book"), new_book_path, :title => "Add new book"
 
 
