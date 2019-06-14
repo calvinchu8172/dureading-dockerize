@@ -4,11 +4,12 @@
     = link_to image_tag("du_logo.png", :size => "400x400", :alt => "du_logo", :title => "Welcome to DUreading!" ), books_path  
 
   .log_in{ title: "Please log in" }
-    - if current_user
+    - if user_signed_in?
       = 'Hi, '
       = current_user.name
-      = link_to "登出", auth_signout_path, :class => "a", :method => :delete, :title => "Log out"
+      = link_to "登出", destroy_user_session_path, :class => "a", :method => :delete, :title => "Log out"
     - else
-      = link_to "Facebook 登入", "/auth/facebook", :class => "facebook_login", :title => "Log in"
+      = link_to "SSO 登入", user_dureading_omniauth_authorize_path, :class => "facebook_login", :title => "Log in"
+
 
 

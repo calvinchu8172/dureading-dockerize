@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'omniauth-facebook'
+gem 'strip_attributes'
 gem 'paperclip'
 gem 'aws-sdk-s3'
 gem 'rails_config', '~> 0.4.2'
@@ -46,6 +46,15 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'hamlit'
+
+# --------------------- #
+# - for Log In system - #
+# --------------------- #
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-oauth2', '1.3.1'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

@@ -18,10 +18,13 @@
 
     .fb_wrapper
       = link_to image_tag("fb_icon.png", :size => "80x80", :alt => "du_logo"), "https://www.facebook.com/dureading", :title => "To DUreading FB Page", target: :_blank
-      - if current_user
+      - if user_signed_in?
         .fb_user
           = 'Hi, ' + current_user.name
-          = link_to "登出", auth_signout_path, :method => :delete, :title => "Log out"
+          = link_to "登出", destroy_user_session_path, :method => :delete, :title => "Log out"
       - else
         .fb_user_link
-          = link_to "Facebook 登入", "/auth/facebook", :title => "Log in"
+          = link_to "SSO 登入", new_user_session_path, :title => "Log in"
+
+
+

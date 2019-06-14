@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
 
+  # devise_for :users
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
+  authenticated :user do
+    # root 'users#show', as: :authenticated_root
+    root 'books#index', as: :authenticated_root
+  end
+
+  # root :to => "welcome#index"
+  root "welcome#index"
+
   resources :books do
     resources :comments
   end
@@ -28,7 +43,7 @@ Rails.application.routes.draw do
 
   # root :to => "books#index"
   get "welcome" => "welcome#index"
-  root :to => "welcome#index"
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
