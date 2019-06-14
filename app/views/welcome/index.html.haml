@@ -1,0 +1,14 @@
+.welcome
+.welcome_wrapper
+  .du_logo{ title: "Welcome to DUreading!" }
+    = link_to image_tag("du_logo.png", :size => "400x400", :alt => "du_logo", :title => "Welcome to DUreading!" ), books_path  
+
+  .log_in{ title: "Please log in" }
+    - if current_user
+      = 'Hi, '
+      = current_user.name
+      = link_to "登出", auth_signout_path, :class => "a", :method => :delete, :title => "Log out"
+    - else
+      = link_to "Facebook 登入", "/auth/facebook", :class => "facebook_login", :title => "Log in"
+
+
