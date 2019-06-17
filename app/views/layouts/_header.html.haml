@@ -24,7 +24,7 @@
           = link_to "登出", destroy_user_session_path, :method => :delete, :title => "Log out"
       - else
         .fb_user_link
-          = link_to "SSO 登入", new_user_session_path, :title => "Log in"
+          = link_to "SSO 登入", user_sso_omniauth_authorize_path, :title => "Log in"
 
 
 

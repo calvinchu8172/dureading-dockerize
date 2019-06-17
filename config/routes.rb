@@ -7,12 +7,18 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  authenticated :user do
-    # root 'users#show', as: :authenticated_root
-    root 'books#index', as: :authenticated_root
+  devise_scope :user do
+    authenticated :user do
+      # root 'users#show', as: :authenticated_root
+      root 'books#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      # root "books#index", as: :unauthenticated_root
+      root "welcome#index", as: :unauthenticated_root
+    end
   end
 
-  # root :to => "welcome#index"
   root "welcome#index"
 
   resources :books do
@@ -37,9 +43,9 @@ Rails.application.routes.draw do
     get "/rent" => "books#rent"
   end
 
-  get '/auth/:provider/callback', :to => 'sessions#create'
-  get '/auth/failure', to: 'sessions#failure'
-  delete '/auth/signout', to: 'sessions#destroy'  
+  # get '/auth/:provider/callback', :to => 'sessions#create'
+  # get '/auth/failure', to: 'sessions#failure'
+  # delete '/auth/signout', to: 'sessions#destroy'  
 
   # root :to => "books#index"
   get "welcome" => "welcome#index"

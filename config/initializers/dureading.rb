@@ -2,9 +2,9 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Dureading < OmniAuth::Strategies::OAuth2
+    class Sso < OmniAuth::Strategies::OAuth2
 
-      option :name, :dureading
+      option :name, :sso
 
       option :client_options, {
         site: Settings.oauth.sso_url,

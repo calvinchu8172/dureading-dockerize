@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-  include CheckUser
-  before_action :check_user
+  before_action :authenticate_user!
 
   def create
     @book = Book.find(params[:book_id])
