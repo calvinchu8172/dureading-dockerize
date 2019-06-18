@@ -1,28 +1,28 @@
 .header
   .header_wrapper
-    .col-md-1
+    .col-md-1.col-sm-1.col-xs-1
       .du-icon
         = link_to image_tag("du_logo.png", :size => "80x80", :alt => "du_logo"), root_path, :title => "To Main Page"
-    .col-md-3
+    .col-md-3.col-sm-3.col-xs-3
       .dureading
         DùReading
   
-    .col-md-1
+    .col-md-1.col-sm-1.col-xs-1
       .header-icons
         = link_to image_tag("all_books.png", :size => "60x60", :alt => "all_book"), books_path, :title => "All books"
-    .col-md-1
+    .col-md-1.col-sm-1.col-xs-1
       - if current_user
         .header-icons
           = link_to image_tag("my_book.png", :size => "60x60", :alt => "my_book"), user_path(current_user), :title => "My books"
-    .col-md-1
+    .col-md-1.col-sm-1.col-xs-1
       - if current_user
         .header-icons
           = link_to image_tag("add_book.png", :size => "60x60", :alt => "add_book"), new_book_path, :title => "Add new book"
-    .col-md-2
+    .col-md-2.col-sm-2.col-xs-2
       - if flash.present?
         = flash_message
 
-    .col-md-2
+    .col-md-2.col-sm-2.col-xs-2
       - if user_signed_in?
         .fb_user
           = 'Hi, ' + current_user.name
@@ -30,7 +30,7 @@
       - else
         .fb_user_link
           = link_to "SSO Log in", user_sso_omniauth_authorize_path, :title => "Log in"
-    .col-md-1
+    .col-md-1.col-sm-1.col-xs-1
       .fb-icon
         = link_to image_tag("fb_icon.png", :alt => "du_logo"), "https://www.facebook.com/dureading", :title => "To DUreading FB Page", target: :_blank
     

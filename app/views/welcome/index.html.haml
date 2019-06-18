@@ -1,17 +1,31 @@
 .welcome
-.welcome_wrapper
-  .du_logo{ title: "Welcome to DUreading!" }
-    = link_to image_tag("du_logo.png", :size => "400x400", :alt => "du_logo", :title => "Welcome to DUreading!" ), books_path  
+  / .slider
+  /   %ul.pic
+  /     %li=image_tag("slide0.jpg", :size =>"1280x800", :alt =>"missing")
+  /     %li=image_tag("slide1.jpg", :size =>"1280x800", :alt =>"missing")
+  /     %li=image_tag("slide2.jpg", :size =>"1280x800", :alt =>"missing")
+  /   .clearFix
 
-  .log_in{ title: "Please log in" }
-    - if user_signed_in?
-      = 'Hi, '
-      = current_user.name
-      = link_to "登出", destroy_user_session_path, :class => "a", :method => :delete, :title => "Log out"
-    - else
-      = link_to "SSO 登入", user_sso_omniauth_authorize_path, :class => "facebook_login", :title => "Log in"
-  - if flash.present?
-    = flash_message
+.welcome-wrapper
+  .row
+    .col-md-12
+      .du-logo
+        = link_to image_tag("du_logo.png", :size => "400x400", :alt => "du_logo", :title => "Welcome to DUreading!" ), books_path  
+
+  .row
+    .col-md-12
+      .log-in{ title: "Please log in" }
+        - if user_signed_in?
+          = 'Hi, '
+          = current_user.name
+          = link_to "Log Out", destroy_user_session_path, :method => :delete, :title => "Log out"
+        - else
+          = link_to "SSO Log In", user_sso_omniauth_authorize_path, :class => "facebook-login", :title => "Log in"
+  .row
+    .col-md-12
+      .welcome-flash-wrapper
+        - if flash.present?
+          = flash_message
 
 
 
