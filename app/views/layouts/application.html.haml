@@ -8,10 +8,5 @@
 
   %body
     = render 'layouts/header'
-
-    - if flash[:alert]
-      %p
-        = flash[:alert]
-
     = yield
 

@@ -10,6 +10,8 @@
       = link_to "登出", destroy_user_session_path, :class => "a", :method => :delete, :title => "Log out"
     - else
       = link_to "SSO 登入", user_sso_omniauth_authorize_path, :class => "facebook_login", :title => "Log in"
+  - if flash.present?
+    = flash_message
 
 
 
