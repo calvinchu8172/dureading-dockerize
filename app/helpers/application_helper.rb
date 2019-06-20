@@ -3,7 +3,8 @@ module ApplicationHelper
   def flash_message
     boostrap_alert_type = ['success','info','warning','danger']
     content_tag :div, class: "flash-messages" do
-      flash.map do |key, value| 
+      flash.delete("timedout")
+      flash.map do |key, value|
         unless boostrap_alert_type.include?(key)
           key = 'info'
         end
