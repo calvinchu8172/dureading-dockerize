@@ -1,6 +1,9 @@
 .note.note_bg
   .note_container
-    .row
+    .row.form-wrapper
       .col-md-12
         = form_for @book, :url => { :controller => 'books', :action => 'create' }, :html => {:class => "form-horizontal center"} do |f|
           = render :partial => 'form', :locals => { :f => f }
+    .row
+      .col-md-12
+        = link_to 'Back', :back, class: 'btn btn-default'

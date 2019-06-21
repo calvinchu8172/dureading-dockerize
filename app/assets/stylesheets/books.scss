@@ -12,30 +12,16 @@
   margin: auto;
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
-  .book_container {
-    background-image: image-url("bookshelf_mobile.jpg");
-    background-size: 100% 100%;
-  }
-}
-
-@media (max-width: 767px) {
-  .book_container {
-    background-image: image-url("bookshelf.jpg");
-    background-size: 100% 33%;
-    background-repeat: repeat;
-  }
-}
-
 .book-box {
   height: 270px;
   text-align: center;
 }
 
 .book_wrapper {
-  width:150px;
-  height:200px;
-  background-color: #202937;
+  max-width: 150px;
+  height: 200px;
+  // background-color: #202937;
+  background-color: $du-dark;
   margin: 55px auto 10px auto;
   box-shadow: 0px -4px 20px 2px #000;
   border-radius: 5px;
@@ -60,20 +46,15 @@
 
 .note {
   width: 100%;
-  height: 100%;
   padding-top: 100px;
   color: white;
-}
-
-@media screen and (max-width: 1024px) {
-  .note {
-    height: 100vh;
-  }
+  background-image: image-url("canvas.jpg");
+  background-repeat: repeat;
+  background-size: 15%;
 }
 
 .note_bg {
-  background-image: image-url("note_bg.png");
-  background-size: 100% 100%;
+  height: 100vh;
 }
 
 .note_container {
@@ -82,7 +63,7 @@
 }
 
 .book_logo {
-  margin: 5px 25px 0 25px;
+  margin: 5px auto 0 auto;
   padding-top: 10px;
   img {
     width: 100px;
@@ -96,7 +77,7 @@
   overflow: hidden;
   text-align: center;
   color: #FFF;
-  margin-left: 15px;
+  margin: auto;
 }
 
 .book_owner {
@@ -147,6 +128,33 @@
 
 .book-details {
   font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .book_container {
+    background-image: image-url("bookshelf_mobile.jpg");
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .book_container {
+    background-image: image-url("bookshelf.jpg");
+    background-size: 100% 33%;
+    background-repeat: repeat;
+  }
+  .note_container {
+    width: 350px;
+  }
+}
+
+@media (max-width: 321px) {
+  .note_container {
+    width: 300px;
+  }
+  .note_bg {
+    height: 100%;
+  }
 }
 
 

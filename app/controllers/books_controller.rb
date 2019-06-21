@@ -2,8 +2,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, :except => :index
 
 	def index
-		@books = Book.all
-    @books = Book.page(params[:page]).per(18)
+    @books = Book.includes(:users).page(params[:page]).per(18)
 	end
 
 	def show

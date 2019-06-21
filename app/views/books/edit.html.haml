@@ -1,4 +1,5 @@
-.note.note_bg
+/ .note.note_bg
+.note.comment_bg
   .note_container
     .row
       .col-md-12.edit-book-logo
@@ -7,7 +8,9 @@
         - else
           = link_to image_tag( "missing.png" ), book_path(@book)
     .row.form-wrapper
-      = form_for @book, :url => book_path(@book), :html => { :multipart => true }, :method => "patch", :html => {:class => "form-horizontal center"} do |f|
-        = render :partial => 'form', :locals => { :f => f }
+      .col-md-12
+        = form_for @book, :url => book_path(@book), :html => { :multipart => true }, :method => "patch", :html => {:class => "form-horizontal center"} do |f|
+          = render :partial => 'form', :locals => { :f => f }
     .row
-      = link_to 'Back', :back, class: 'btn btn-default'
+      .col-md-12
+        = link_to 'Back', :back, class: 'btn btn-default'
