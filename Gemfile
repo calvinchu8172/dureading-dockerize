@@ -46,6 +46,7 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'hamlit'
+gem 'font-awesome-rails'
 
 # --------------------- #
 # - for Log In system - #

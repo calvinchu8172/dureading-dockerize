@@ -16,3 +16,4 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require welcome
+//= require header_mobile

@@ -8,6 +8,9 @@
     = csrf_meta_tags
 
   %body
-    = render 'layouts/header'
+    .hidden-sm.hidden-xs
+      = render 'layouts/header'
+    .hidden-lg.hidden-md
+      = render 'layouts/header_mobile'
     = yield
 
