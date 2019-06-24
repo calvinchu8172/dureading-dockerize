@@ -8,10 +8,10 @@
   - if current_user
     = link_to "Add book", new_book_path, :title => "Add new book"
   - if user_signed_in?
-    = link_to "Log out", destroy_user_session_path, :method => :delete, :title => "Log out"
+    = link_to "Sign out", destroy_user_session_path, :method => :delete, :title => "Sign out"
   - else
-    = link_to "Log in", user_sso_omniauth_authorize_path, :title => "Log in"
-  = link_to "FB page", "https://www.facebook.com/dureading", :title => "To DUreading FB Page", target: :_blank
+    = link_to "Sign in", user_sso_omniauth_authorize_path, :title => "Sign in"
+  = link_to image_tag("fb_icon.png", :alt => "du_logo"), "https://www.facebook.com/dureading", :class => "fb-page", :title => "To DUreading FB Page", target: :_blank
   %a.icon{ href: "javascript:void(0);", onclick: "myFunction()"}
     = fa_icon "bars"
 

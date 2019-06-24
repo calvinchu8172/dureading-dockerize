@@ -25,11 +25,13 @@
     .col-md-2.col-sm-2.col-xs-2
       - if user_signed_in?
         .fb_user
-          = 'Hi, ' + current_user.name
-          = link_to "Log out", destroy_user_session_path, :method => :delete, :title => "Log out"
+          %p
+            = 'Hi, ' + current_user.name
+          %p
+            = link_to "Sign out", destroy_user_session_path, :method => :delete, :title => "Log out"
       - else
         .fb_user_link
-          = link_to "SSO Log in", user_sso_omniauth_authorize_path, :title => "Log in"
+          = link_to "Sign in", user_sso_omniauth_authorize_path, :title => "Log in"
     .col-md-1.col-sm-1.col-xs-1
       .fb-icon
         = link_to image_tag("fb_icon.png", :alt => "du_logo"), "https://www.facebook.com/dureading", :title => "To DUreading FB Page", target: :_blank

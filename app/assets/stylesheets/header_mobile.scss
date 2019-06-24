@@ -5,7 +5,6 @@
 }
 .header-mobile {
   overflow: hidden;
-  // background-color: #333;
   background-color: $du-brown;
   position: fixed;
   top: 0;
@@ -15,34 +14,37 @@
   a {
     float: left;
     display: block;
-    // color: #f2f2f2;
     color: $du-dark;
     text-align: center;
     padding: 10px 10px;
     text-decoration: none;
     font-size: 17px;
-    line-height: 38px;
+    line-height: 40px;
     font-weight: 600;
     &:hover {
       background-color: #ddd;
       color: black;
     }
     &:active {
-      // background-color: #4CAF50;
       background-color: $du-dark;
       color: white;
     }
   }
   .icon {
     display: none;
-    line-height: 38px;
+    line-height: 40px;
   }
   .du-icon-mobile {
-    // margin-left: 20px;
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+  }
+  a.fb-page {
     img {
       width: 40px;
       height: 40px;
-      border-radius: 10px;
     }
   }
 }
@@ -60,10 +62,6 @@
       }
     }
   }
-  // .header-mobile a.icon {
-  //   float: right;
-  //   display: block;
-  // }
 }
 
 @media (max-width: 767px) {

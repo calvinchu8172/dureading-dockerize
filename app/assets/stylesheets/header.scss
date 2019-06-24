@@ -54,28 +54,38 @@
   margin-top: 5px;
 }
 
-.fb_user{
+.fb_user {
   color: $du-dark;
   height:80px;
-  float: right;
-  line-height: 80px;
+  padding: 20px 0;
+  font-weight: 500;
+  a {
+    color: $du-dark;
+    // text-decoration: none;
+    &:hover {
+      font-weight: bold;
+      color: #999;
+    }
+  }
 }
-.fb_user_link{
-  float: right;
-  width:150px;
-  height:80px;
+.fb_user_link {
+  // float: right;
+  width: 150px;
+  height: 80px;
   line-height: 80px;
-  text-align: center;
-  text-decoration: none;
+  // text-align: center;
+  // text-decoration: none;
   color: #00F;
-}
-.fb_user_link a{
-  color: $du-dark;
-  text-decoration: none;
-}
-.fb_user_link a:hover{
-  font-weight: bold;
-  color: #999;
+  font-weight: 500;
+  font-size: 18px;
+  a {
+      color: $du-dark;
+      // text-decoration: none;
+      &:hover {
+        font-weight: bold;
+        color: #999;
+      }
+    }
 }
 
 .fb-icon {

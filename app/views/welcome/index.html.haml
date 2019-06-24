@@ -14,13 +14,13 @@
 
   .row
     .col-md-12
-      .log-in{ title: "Please log in" }
+      .log-in{ title: "Please Sign in" }
         - if user_signed_in?
           = 'Hi, '
           = current_user.name
-          = link_to "Log Out", destroy_user_session_path, :method => :delete, :title => "Log out"
+          = link_to "Sign Out", destroy_user_session_path, :method => :delete, :title => "Sign out"
         - else
-          = link_to "SSO Log In", user_sso_omniauth_authorize_path, :class => "facebook-login", :title => "Log in"
+          = link_to "Sign In", user_sso_omniauth_authorize_path, :class => "facebook-login", :title => "Sign in"
   .row
     .col-md-12
       .welcome-flash-wrapper
