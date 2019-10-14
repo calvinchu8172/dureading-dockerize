@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @user = User.find( current_user.id )
+    @user = User.find(params[:id])
 	  @books = @user.books.page(params[:page]).per(18)
   end
 
