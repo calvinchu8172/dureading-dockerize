@@ -3,18 +3,18 @@
 
     .row.edit-book-logo
       .col-md-12.col-sm-12.col-xs-12
-        - if @book.logo.exists? 
+        - if @book.logo.exists?
           = link_to image_tag( @book.logo.url(:medium) ), @book.logo.url
         - else
           = link_to image_tag( "missing.png" ), book_path(@book)
 
     .row.book-details
       .col-md-6.col-sm-6.col-xs-3
-        = 'Title:' 
+        = 'Title:'
       .col-md-6.col-sm-6.col-xs-9
         = @book.title
       .col-md-6.col-sm-6.col-xs-3
-        = 'Arthor:' 
+        = 'Arthor:'
       .col-md-6.col-sm-6.col-xs-9
         = @book.author
       .col-md-6.col-sm-6.col-xs-3
@@ -25,7 +25,7 @@
         = 'Description:'
       .col-md-6.col-sm-6.col-xs-9
         = simple_format @book.description
-    
+
     .row
       .comment_wrapper
         - @book.comments.each do |comment|
@@ -35,14 +35,14 @@
               - if comment.photo.exists?
                 .comment_image
                   = link_to image_tag(comment.photo.url(:thumb)), comment.photo.url
-          .arrow  
+          .arrow
           .comment_user_date_delete_wrapper
             = link_to comment.user.name, user_path(comment.user)
             said on
             = comment.created_at.strftime("%d %b. %Y at %H:%M")
 
             - if (comment.user == current_user)
-              = button_to "Delete", book_comment_path(@book, comment), :method => :delete, class: 'btn btn-default'
+              = button_to "Delete", book_comment_path(@book, comment), :method => :delete, class: 'btn btn-default', data: { confirm: 'Are you sure?' }
 
 
     .row.form-wrapper
@@ -59,6 +59,6 @@
               = f.label :content, "Write a comment", class: "control-label"
             .col-md-8.col-sm-8.col-xs-12
               = f.text_area :content, class: "form-control"
-        
+
           = f.submit "Reply", class: 'btn btn-default'
     = link_to 'Back', :back, class: 'btn btn-default'

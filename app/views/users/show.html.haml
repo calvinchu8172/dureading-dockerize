@@ -1,6 +1,6 @@
 .book_container
   = paginate @books, :theme => 'twitter-bootstrap-3' ,:pagination_class => "pagination-sm pagination-centered"
-  
+
   - @books.each do |book|
     .col-md-2.col-sm-4.col-xs-6.book-box
       .book_wrapper
@@ -17,6 +17,6 @@
           = book.author
         .option_icons
           - if current_user == @user
-            = link_to image_tag("book_delete.png", :size => "30x30", :alt => "book_delete"), book_path(book), :method => :delete, :title => "Delete this book"
+            = link_to image_tag("book_delete.png", :size => "30x30", :alt => "book_delete"), book_path(book), :method => :delete, :title => "Delete this book", data: { confirm: 'Are you sure?' }
             = link_to image_tag("book_edit.png", :size => "30x30", :alt => "book_edit"), edit_book_path(book), :title => "Edit this book"
           = link_to image_tag("comment.png", :size => "30x30", :alt => "comment"), book_path(book), :title => "Comment this book"
